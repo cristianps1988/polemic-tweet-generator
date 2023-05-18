@@ -1,11 +1,12 @@
 import { useState } from 'react'
+import generarRespuesta from '../respuesta'
 
 const Formulario = () => {
     const [tema, setTema] = useState('')
 
     const handleSubmit = e => {
         e.preventDefault()
-        console.log(tema)
+        generarRespuesta(tema)
     }
 
     return (
