@@ -1,20 +1,26 @@
 import Formulario from './components/Formulario'
 import Respuesta from './components/Respuesta'
+import Hero from './components/Hero'
+import Divider from './components/Divider'
+import Footer from './components/Footer'
+import respuesta from './respuesta'
 
 
 function App() {
-
+  const { resultado, generarRespuesta } = respuesta()
   return (
     <>
-      <div className="flex flex-col mx-auto mt-40 w-3/4">
-        <h1 className="text-5xl text-center">Escribe un tema para generar tu <span className="text-secondary font-black">tweet polémico</span></h1>
-        <div>
-          <Formulario />
-        </div>
-        <div className="flex mx-auto mt-6 mb-20">
-          <Respuesta />
-        </div>
+      <Hero />
+      <div className='flex flex-col lg:flex-row w-11/12 md:w-3/4 lg:w-3/4 mx-auto lg:justify-center lg:gap-20 mb-10'>
+        <Formulario
+          generarRespuesta={generarRespuesta}
+        />
+        <Divider />
+        <Respuesta
+          resultado={resultado}
+        />
       </div>
+      <Footer />
     </>
   )
 }

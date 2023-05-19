@@ -1,15 +1,16 @@
-import respuesta from "../respuesta"
 import { useState } from "react"
+//import { resultado } from "../respuesta"
+import imagen from '../assets/imagen.png'
 
-const Respuesta = () => {
+const Respuesta = ({ resultado }) => {
     return (
-        <div className="card w-96 bg-base-200 shadow-md">
+        <div className="card w-full bg-base-200 shadow-md basis-1/3 mt-4">
             <div className="card-body items-center text-center">
-                <h2 className="card-title">Tweet polémico</h2>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque ipsa veniam soluta officia aliquam optio nesciunt neque nihil natus odio, similique dolorem praesentium debitis expedita quae repudiandae aut at impedit.</p>
-                <div className="card-actions">
-                    <button className="btn btn-primary mt-4">Copiar</button>
-                </div>
+                {resultado && <h2 className="card-title">Result</h2>}
+                <p>{resultado ? resultado : <img src={imagen} />}</p>
+                {/* <div className="card-actions">
+                    {resultado && <button className="btn btn-secondary mt-4">Copiar</button>}
+                </div> */}
             </div>
         </div>
     )
