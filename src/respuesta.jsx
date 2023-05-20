@@ -13,7 +13,7 @@ const respuesta = () => {
             headers: {
                 accept: 'application/json',
                 'content-type': 'application/json',
-                authorization: 'Bearer kDRFgH0Ihd5SESEfjVD0KJabeoAWOl1OzYFpWXqE'
+                authorization: `Bearer ${import.meta.env.VITE_COHERE_KEY}`
             },
             data: {
                 model: 'command',
