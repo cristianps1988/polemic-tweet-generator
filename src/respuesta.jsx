@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 import React from 'react'
+import { toast } from "react-hot-toast";
+
 
 const respuesta = () => {
 
@@ -31,19 +33,21 @@ const respuesta = () => {
                 setResultado(response.data.generations[0].text);
             })
             .catch(function (error) {
-                console.error(error);
+                setResultado(error.response.status);
             });
-
+        toast.promise(
+            axios
+                .request(options),
+            {
+                loading: 'generating your tweet...',
+                success: <b>Done!</b>,
+                error: <b>Upps... sorry! Bad request</b>,
+            }
+        );
     }
-
-    // const imprimirRespuesta = (texto) => {
-    //     setResultado(texto)
-    //     console.log(resultado)
-    // }
 
     return {
         generarRespuesta,
-        // imprimirRespuesta,
         resultado
     }
 

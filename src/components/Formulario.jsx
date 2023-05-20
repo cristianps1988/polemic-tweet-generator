@@ -1,6 +1,5 @@
 import { useState } from 'react'
-//import { generarRespuesta } from "../respuesta"
-import Alerta from './Alerta'
+import { toast } from 'react-hot-toast'
 
 const Formulario = ({ generarRespuesta }) => {
     const [tema, setTema] = useState('')
@@ -9,35 +8,33 @@ const Formulario = ({ generarRespuesta }) => {
     const handleSubmit = e => {
         e.preventDefault()
         if (!tema) {
-            setAlerta({
-                msg: 'Campo obligatorio',
-                error: true
+            toast.error('Required', {
+                style: {
+                    color: 'rgb(254 242 242)',
+                    background: 'rgb(248 113 113)'
+                },
+                iconTheme: {
+                    primary: 'rgb(254 242 242)',
+                    secondary: 'rgb(248 113 113)',
+                },
             })
-            setTimeout(() => {
-                setAlerta({})
-            }, 3000)
             return
         }
         if (tema.length < 3) {
-            setAlerta({
-                msg: 'Palabra muy corta',
-                error: true
+            toast.error('Too Short', {
+                style: {
+                    color: 'rgb(254 242 242)',
+                    background: 'rgb(248 113 113)'
+                },
+                iconTheme: {
+                    primary: 'rgb(254 242 242)',
+                    secondary: 'rgb(248 113 113)',
+                },
             })
-            setTimeout(() => {
-                setAlerta({})
-            }, 3000)
             return
         }
         generarRespuesta(tema)
-        setAlerta({
-            msg: 'Generando tweet',
-        })
-        setTimeout(() => {
-            setAlerta({})
-        }, 3000)
     }
-
-    const { msg } = alerta
 
     return (
 
@@ -61,9 +58,6 @@ const Formulario = ({ generarRespuesta }) => {
                 type="submit"
                 className="btn-secondary mt-6 btn w-full mb-4"
             >Generate tweet</button>
-            {msg && <Alerta
-                alerta={alerta}
-            />}
         </form>
     )
 }
