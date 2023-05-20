@@ -2,6 +2,7 @@ import { useState } from "react"
 //import { resultado } from "../respuesta"
 import imagen from '../assets/imagen.png'
 
+
 const Respuesta = ({ resultado }) => {
     return (
         <div className="card w-full bg-base-200 shadow-md basis-1/3 mt-4">
