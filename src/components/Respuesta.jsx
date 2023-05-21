@@ -1,5 +1,4 @@
 import { useState } from "react"
-//import { resultado } from "../respuesta"
 import imagen from '../assets/imagen.png'
 import error from '../assets/404.png'
 

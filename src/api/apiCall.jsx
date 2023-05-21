@@ -45,9 +45,10 @@ const apiCall = () => {
             }
         );
     }
+
     return {
         generarRespuesta,
-        apiCall
+        resultado
     }
 
 }
