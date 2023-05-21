@@ -4,7 +4,7 @@ import React from 'react'
 import { toast } from "react-hot-toast";
 
 
-const respuesta = () => {
+const apiCall = () => {
 
     const [resultado, setResultado] = useState('')
 
@@ -41,19 +41,19 @@ const respuesta = () => {
             {
                 loading: 'generating your tweet...',
                 success: <b>Done!</b>,
-                error: <b>Upps... sorry! Bad request</b>,
+                error: <b>Upps... sorry! Too many requests</b>,
             }
         );
     }
 
     return {
         generarRespuesta,
-        resultado
+        apiCall
     }
 
 }
 
-export default respuesta
+export default apiCall
 
 
 

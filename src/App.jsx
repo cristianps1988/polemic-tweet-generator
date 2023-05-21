@@ -3,12 +3,12 @@ import Respuesta from './components/Respuesta'
 import Hero from './components/Hero'
 import Divider from './components/Divider'
 import Footer from './components/Footer'
-import respuesta from './respuesta'
+import apiCall from './api/apiCall'
 import { Toaster } from 'react-hot-toast'
 
 
 function App() {
-  const { resultado, generarRespuesta } = respuesta()
+  const { resultado, generarRespuesta } = apiCall()
   return (
     <>
       <div><Toaster /></div>

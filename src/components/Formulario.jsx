@@ -1,9 +1,15 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { toast } from 'react-hot-toast'
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Formulario = ({ generarRespuesta }) => {
     const [tema, setTema] = useState('')
-    const [alerta, setAlerta] = useState({})
+    const [captchaValido, setCaptchaValido] = useState(null)
+
+    const onChange = () => {
+        setCaptchaValido(captcha.current.getValue())
+    }
+    const captcha = useRef(null)
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -33,7 +39,21 @@ const Formulario = ({ generarRespuesta }) => {
             })
             return
         }
-        generarRespuesta(tema)
+        if (!captchaValido) {
+            toast.error('Please, complete the captcha', {
+                style: {
+                    color: 'rgb(254 242 242)',
+                    background: 'rgb(248 113 113)'
+                },
+                iconTheme: {
+                    primary: 'rgb(254 242 242)',
+                    secondary: 'rgb(248 113 113)',
+                },
+            })
+            return
+        } else {
+            generarRespuesta(tema)
+        }
     }
 
     return (
@@ -52,6 +72,13 @@ const Formulario = ({ generarRespuesta }) => {
                     className="input input-bordered input-primary w-full max-w-2xl mt-4"
                     value={tema}
                     onChange={e => setTema(e.target.value)}
+                />
+            </div>
+            <div className='mt-6 mx-auto'>
+                <ReCAPTCHA
+                    ref={captcha}
+                    sitekey="6Ldv2CYmAAAAAG7Ghueinw8qW8c2eeIm3YZIhrUr"
+                    onChange={onChange}
                 />
             </div>
             <button
