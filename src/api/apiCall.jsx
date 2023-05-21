@@ -19,7 +19,7 @@ const apiCall = () => {
             },
             data: {
                 model: 'command',
-                max_tokens: 100,
+                max_tokens: 90,
                 temperature: 0.8,
                 return_likelihoods: 'NONE',
                 truncate: 'END',
