@@ -7,7 +7,7 @@ const Footer = () => {
                 <p className='text-base-content'>Made with ❤ by <a href="https://www.linkedin.com/in/cristiancamilopena/" target="_blank" rel="noopener noreferrer" className='font-black'>Cristian Peña</a></p>
             </div>
             <div className='flex mx-auto basis-1/2'>
-                <div className="flex flex-col md:flex-row gap-4 md:gap-8 mx-auto items-center justify-center">
+                <div className="flex flex-col md:flex-row gap-4 md:gap-8 mx-auto items-center justify-center md:justify-between">
                     <a className="btn btn-secondary gap-2" href='https://github.com/cristianps1988/polemic-tweet-generator' target="_blank" rel="noopener noreferrer" >
                         <svg xmlns="http://www.w3.org/2000/svg" className='h-6 w-6' viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
