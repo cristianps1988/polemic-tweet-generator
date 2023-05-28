@@ -84,6 +84,7 @@ const Formulario = ({ generarRespuesta }) => {
             <button
                 type="submit"
                 className="btn-secondary mt-6 btn w-full mb-4"
+                disabled={!captchaValido ? true : false}
             >Generate tweet</button>
         </form>
     )
