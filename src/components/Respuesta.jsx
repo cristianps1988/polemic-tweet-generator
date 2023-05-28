@@ -16,7 +16,7 @@ const Respuesta = ({ resultado }) => {
     })
 
     const handleCopy = () => {
-        alert('texto copiado')
+        toast.success('Text copied to clipboard')
     }
 
     return (
