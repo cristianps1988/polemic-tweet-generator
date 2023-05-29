@@ -52,7 +52,14 @@ const Formulario = ({ generarRespuesta }) => {
             })
             return
         } else {
-            generarRespuesta(tema)
+            toast.promise(
+                generarRespuesta(tema),
+                {
+                    loading: 'generating your tweet...',
+                    success: <b>Done!</b>,
+                    error: <b>Upps... sorry! Too many requests</b>,
+                }
+            );
         }
     }
 
@@ -63,7 +70,7 @@ const Formulario = ({ generarRespuesta }) => {
             onSubmit={handleSubmit}
             className='basis-1/3 flex flex-col justify-center align-middle'
         >
-            <p className="py-6">Increase the reach and engagement of your tweets with controversial posts</p>
+            <p className="py-6">Increase the reach and engagement of your tweets with controversial posts generated with the help of <span className='text-secondary font-black'>Artificial Intelligence</span></p>
             <div className="flex flex-col mx-auto w-full">
                 <label >Topic:</label>
                 <input
