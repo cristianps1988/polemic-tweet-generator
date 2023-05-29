@@ -1,6 +1,4 @@
 import { useState } from "react";
-import React from 'react'
-import { toast } from "react-hot-toast";
 import { OpenAI } from "langchain/llms/openai";
 import {
     PromptTemplate
@@ -22,7 +20,8 @@ const apiCall = () => {
             const res = await model.call(responseA);
             setResultado(res)
         } catch (error) {
-            console.log(error);
+            setResultado(error.response.request.status)
+            console.log(error.message)
         }
     }
 
@@ -30,7 +29,6 @@ const apiCall = () => {
         generarRespuesta,
         resultado
     }
-
 }
 
 export default apiCall
