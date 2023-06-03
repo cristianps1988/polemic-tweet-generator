@@ -4,14 +4,13 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import imagen from '../assets/imagen.png'
 import error from '../assets/404.png'
 
-
 const Respuesta = ({ resultado }) => {
     const [caracteres, setCaracteres] = useState('')
     const [porcentaje, setPorcentaje] = useState('')
 
     useEffect(() => {
         setCaracteres(resultado.split('').length)
-        setPorcentaje(Math.ceil((Number(caracteres) * 100) / 180))
+        setPorcentaje(Math.ceil((Number(caracteres) * 100) / 280))
     })
 
     const handleCopy = () => {

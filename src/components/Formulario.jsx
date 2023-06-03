@@ -14,7 +14,7 @@ const Formulario = ({ generarRespuesta }) => {
     const handleSubmit = e => {
         e.preventDefault()
         if (!tema) {
-            toast.error('Required', {
+            toast.error('Theme is required!', {
                 style: {
                     color: 'rgb(254 242 242)',
                     background: 'rgb(248 113 113)'
@@ -55,10 +55,12 @@ const Formulario = ({ generarRespuesta }) => {
             toast.promise(
                 generarRespuesta(tema),
                 {
-                    loading: 'generating your tweet...',
+                    loading: 'Generating your tweet...',
                     success: <b>Done!</b>,
                     error: <b>Upps... sorry! Too many requests</b>,
-                }
+                },
+                captcha.current?.reset(),
+                setCaptchaValido(false)
             );
         }
     }

@@ -3,12 +3,14 @@ import Respuesta from './components/Respuesta'
 import Hero from './components/Hero'
 import Divider from './components/Divider'
 import Footer from './components/Footer'
+import Skeleton from './components/Skeleton'
 import apiCall from './api/apiCall'
 import { Toaster } from 'react-hot-toast'
 
 
 function App() {
-  const { resultado, generarRespuesta } = apiCall()
+  const { resultado, generarRespuesta, isLoading } = apiCall()
+
   return (
     <>
       <div><Toaster /></div>
@@ -18,9 +20,10 @@ function App() {
           generarRespuesta={generarRespuesta}
         />
         <Divider />
-        <Respuesta
+        {isLoading ? <Skeleton /> : <Respuesta
           resultado={resultado}
-        />
+        />}
+
       </div>
       <Footer />
     </>
